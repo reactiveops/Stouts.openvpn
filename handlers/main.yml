@@ -6,12 +6,12 @@
 - name: openvpn pack clients
   command: tar cvzf {{openvpn_keydir}}/{{item.item}}.tar.gz -C {{openvpn_keydir}} {{item.item}}.crt {{item.item}}.key {{item.item}}.ovpn ca.crt
   when: item.changed and not openvpn_client_create_gateway_config
-  with_items: openvpn_clients_changed.results
+  with_items: '{{openvpn_clients_changed.results}}'
 
 - name: openvpn pack clients with client-all.ovpn
   command: tar cvzf {{openvpn_keydir}}/{{item.item}}.tar.gz -C {{openvpn_keydir}} {{item.item}}.crt {{item.item}}.key {{item.item}}.ovpn {{item.item}}-all.ovpn ca.crt
   when: item.changed and openvpn_client_create_gateway_config
-  with_items: openvpn_clients_changed.results
+  with_items: '{{openvpn_clients_changed.results}}'
 
 - name: upload openvpn keys dir to s3
   command: aws s3 sync --delete "{{openvpn_etcdir}}/keys/"  "{{openvpn_s3_conf_path}}/keys/"

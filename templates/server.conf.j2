@@ -124,6 +124,8 @@ group {{openvpn_group}}
 group nogroup
 {% endif %}
 
+script-security 2
+
 {% if openvpn_client_to_client %}
 client-to-client
 {% endif %}

@@ -12,6 +12,7 @@ openvpn_host_secondary: []                          # If set, will add a seconda
 
 openvpn_port: 1194
 openvpn_proto: udp
+openvpn_cipher: BF-CBC
 openvpn_dev: tun
 openvpn_server: 10.8.0.0 255.255.255.0              # Set empty for skip
 openvpn_max_clients: 100

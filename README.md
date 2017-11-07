@@ -26,6 +26,7 @@ openvpn_keydir: "{{openvpn_etcdir}}/keys"
 openvpn_host: "{{inventory_hostname}}"              # The server address
 openvpn_port: 1194
 openvpn_proto: udp
+openvpn_cipher: AES-256-CBC
 openvpn_dev: tun
 openvpn_server: 10.8.0.0 255.255.255.0
 openvpn_max_clients: 100
